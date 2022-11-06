@@ -14,3 +14,4 @@ out
 .env.production
 yarn.lock
 .gitkeep
+_redirects.txt

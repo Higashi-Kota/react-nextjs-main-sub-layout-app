@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
+    "export": "next export && cp _redirects.txt out/_redirects",
     "start": "next start",
     "serve": "serve out",
     "lint": "next lint",
