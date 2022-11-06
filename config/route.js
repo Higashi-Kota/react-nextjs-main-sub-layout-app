@@ -47,8 +47,63 @@ const routes = [
     },
   },
   {
+    pathName: `/event/halloween`,
+    pageName: `Halloween`,
+    activeMenuName: `Event`,
+    header: () => {
+      return <Header />;
+    },
+    footer: () => {
+      return null;
+    },
+  },
+  {
+    pathName: `/event/christmas`,
+    pageName: `Christmas`,
+    activeMenuName: `Event`,
+    header: () => {
+      return <Header />;
+    },
+    footer: () => {
+      return null;
+    },
+  },
+  {
     pathName: `/shop`,
     pageName: `Shop`,
+    activeMenuName: `Shop`,
+    header: () => {
+      return <Header />;
+    },
+    footer: () => {
+      return null;
+    },
+  },
+  {
+    pathName: `/shop/restaurant/[shopId]`,
+    pageName: `Restaurant`,
+    activeMenuName: `Shop`,
+    header: () => {
+      return <Header />;
+    },
+    footer: () => {
+      return null;
+    },
+  },
+  {
+    pathName: `/shop/cafe/[shopId]`,
+    pageName: `Cafe`,
+    activeMenuName: `Shop`,
+    header: () => {
+      return <Header />;
+    },
+    footer: () => {
+      return null;
+    },
+  },
+  {
+    pathName: `/shop/sushi/[shopId]`,
+    pageName: `Sushi`,
     activeMenuName: `Shop`,
     header: () => {
       return <Header />;

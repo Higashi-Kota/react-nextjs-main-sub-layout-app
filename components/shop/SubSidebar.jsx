@@ -11,23 +11,30 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import {MdLocalCafe} from 'react-icons/md';
 import {GrCafeteria, GrRestaurant} from 'react-icons/gr';
 import {GiSadCrab, GiSushis} from 'react-icons/gi';
+import {useRouter} from 'next/router';
 
 const SubSidebar = () => {
+  const router = useRouter();
+
   const items = [
     {
       heading: `レストラン`,
       icon: ({className = css``}) => {
         return <GrCafeteria size={24} className={className} />;
       },
+      pathname: `/restaurant`,
       subItems: [
         {
           heading: `なばの`,
+          pathname: `/restaurant/nabano`,
         },
         {
           heading: `フェイバレンタイン`,
+          pathname: `/restaurant/faye-valentine`,
         },
         {
           heading: `スピーゲル`,
+          pathname: `/restaurant/spiegel`,
         },
       ],
     },
@@ -36,9 +43,11 @@ const SubSidebar = () => {
       icon: ({className = css``}) => {
         return <GiSushis size={24} className={className} />;
       },
+      pathname: `/sushi`,
       subItems: [
         {
           heading: `かっぱ寿司`,
+          pathname: `/sushi/kappa-sushi`,
         },
       ],
     },
@@ -47,15 +56,19 @@ const SubSidebar = () => {
       icon: ({className = css``}) => {
         return <MdLocalCafe size={24} className={className} />;
       },
+      pathname: `/cafe`,
       subItems: [
         {
           heading: `スタバ`,
+          pathname: `/cafe/starbucks`,
         },
         {
           heading: `ドトール`,
+          pathname: `/cafe/doutor`,
         },
         {
           heading: `タリーズ`,
+          pathname: `/cafe/tullys`,
         },
       ],
     },
@@ -133,6 +146,11 @@ const SubSidebar = () => {
                         animation-name: none;
                       `
                     )}
+                    onClick={(e) => {
+                      router.push({
+                        pathname: `/shop${subItem.pathname}`,
+                      });
+                    }}
                   >
                     {subItem.heading}
                   </AccordionItemPanel>

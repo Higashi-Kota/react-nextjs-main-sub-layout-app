@@ -10,34 +10,18 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import {MdSnowmobile} from 'react-icons/md';
 import {TbChristmasTree} from 'react-icons/tb';
 import {GiPumpkinLantern} from 'react-icons/gi';
+import {useRouter} from 'next/router';
 
 const SubSidebar = () => {
+  const router = useRouter();
+
   const items = [
-    {
-      heading: `アクセス`,
-      icon: ({className = css``}) => {
-        return <MdSnowmobile size={24} className={className} />;
-      },
-      subItems: [
-        {
-          heading: `徒歩`,
-        },
-        {
-          heading: `バス`,
-        },
-        {
-          heading: `車`,
-        },
-        {
-          heading: `電車`,
-        },
-      ],
-    },
     {
       heading: `クリスマス`,
       icon: ({className = css``}) => {
         return <TbChristmasTree size={24} className={className} />;
       },
+      pathname: `christmas`,
       subItems: [],
     },
     {
@@ -45,6 +29,7 @@ const SubSidebar = () => {
       icon: ({className = css``}) => {
         return <GiPumpkinLantern size={24} className={className} />;
       },
+      pathname: `halloween`,
       subItems: [],
     },
   ];
@@ -64,11 +49,17 @@ const SubSidebar = () => {
         `
       )}
     >
-      <Accordion allowZeroExpanded className={`select-none`}>
+      <Accordion allowZeroExpanded className={``}>
         {items.map((item, i) => {
           return (
             <AccordionItem key={i}>
-              <AccordionItemHeading>
+              <AccordionItemHeading
+                onClick={(e) => {
+                  router.push({
+                    pathname: `/event/${item.pathname}`,
+                  });
+                }}
+              >
                 <AccordionItemButton
                   className={cx(
                     `accordion__button`,
